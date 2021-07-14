@@ -3,6 +3,7 @@
 #You will need Google Chrome (not Chromium!) or Brave  for this to work. Because we need to log console output using a launch flag, and we can use this to pull our Roblox Launch Arugment.
 #There is no need to sign into Chrome if you don't want to.
 #After selecting a game, the browser will close. Logging will not be enabled for future general Chrome sessions - it only gets enabled in Roblox Linux Launcher.
+#You will need to your installed Roblox folder copyed from /.wine/drive_c/yourusername/AppData/Local/Roblox/Versions to /.wine/drive_c/Program Files (x86)/Roblox/Versions
 import os
 import time
 import threading
@@ -23,11 +24,11 @@ class Browser:
   def __str__(self):
     return self.pgrep_pattern
 
-BRAVE = Browser("brave", "brave-browser", "~/.config/BraveSoftware/Brave-Browser/chrome_debug.log",
-        'brave-browser --app --window-size=1280,720 --enable-logging https://www.roblox.com'
+BRAVE = Browser("brave", "brave", "~/.config/BraveSoftware/Brave-Browser/chrome_debug.log",
+        'brave --app --window-size=1280,720 --enable-logging https://www.roblox.com'
         )
-CHROME = Browser("chrome", "google-chrome-stable", "~/.config/google-chrome/chrome_debug.log",
-        'google-chrome-stable --app=https://www.roblox.com --window-size=1280,720 --enable-logging'
+CHROME = Browser("chrome", "chrome", "~/.config/google-chrome/chrome_debug.log",
+        'chrome --app=https://www.roblox.com --window-size=1280,720 --enable-logging'
         )
 
 browser_list = [BRAVE, CHROME]
